@@ -1,4 +1,5 @@
 FROM frolvlad/alpine-oraclejdk8:slim
+MAINTAINER Markus Souza
 
 VOLUME /tmp
 VOLUME /opt/banheirolimpo-service
