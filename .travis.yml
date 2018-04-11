@@ -1,0 +1,21 @@
+language: java
+
+jdk: oraclejdk8
+
+sudo: required
+services:
+  - docker
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::7}
+
+  script:
+- ./mvnw clean install -B
+
+after_success:
+- docker login -u markussouza -p G4brielle!
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export IMAGE_NAME=markussouza/banheirolimpo-service
+- docker build -t $IMAGE_NAME:$COMMIT .
+- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME

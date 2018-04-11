@@ -5,6 +5,8 @@ endpoints:
     enabled: true
 
 spring:
+  application:
+    name: banheirolimpo-service
   profiles:
     active: dev
   main:

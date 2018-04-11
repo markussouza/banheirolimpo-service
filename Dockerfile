@@ -1,4 +1,7 @@
-FROM java:8
-EXPOSE 8080
-ADD /target/banheirolimpo-service-0.0.1.jar banheirolimpo-service-0.0.1.jar
-ENTRYPOINT ["java", "-jar", "banheirolimpo-service-0.0.1.jar"]
+FROM frolvlad/alpine-oraclejdk8:slim
+
+VOLUME /tmp
+VOLUME /opt/banheirolimpo-service
+ADD banheirolimpo-service.jar /opt/banheirolimpo-service/banheirolimpo-service.jar
+RUN sh -c 'touch /opt/banheirolimpo-service.jar'
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/opt/banheirolimpo-service/banheirolimpo-service.jar"]
