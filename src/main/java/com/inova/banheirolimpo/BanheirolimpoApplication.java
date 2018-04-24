@@ -93,7 +93,7 @@ public class BanheirolimpoApplication {
 	}
 	
 	private void initCliente(ClienteRepository clienteRepository, EmpresaRepository empresaRepository) {
-		Empresa empresa = empresaRepository.findOne(1L);
+		Empresa empresa = empresaRepository.findAll().get(0);
 		Cliente cliente = new Cliente();
 		cliente.setRazaoSocial("VITOR E LARA LIMPEZA ME");
 		cliente.setNomeFantasia("VILA LIMPEZA");
@@ -115,7 +115,7 @@ public class BanheirolimpoApplication {
 	}
 	
 	private void initBanheiro(BanheiroRepository banheiroRepository, ClienteRepository clienteRepository) {
-		Cliente cliente = clienteRepository.findOne(1L);
+		Cliente cliente = clienteRepository.findAll().get(0);
 		Banheiro banheiro = new Banheiro();
 		banheiro.setNome("TANF");
 		banheiro.setLocalizacao("TÉRREO ALA NORTE");
@@ -135,7 +135,7 @@ public class BanheirolimpoApplication {
 		funcao.setDescricao("ENCARREGADO");
 		funcao.setSituacao(Situacao.ATIVO);
 		
-		Funcao find = funcaoRepository.findOne(1L);
+		Funcao find = funcaoRepository.findByDescricaoIgnoreCase("ENCARREGADO");
 		if (find == null) {
 			funcaoRepository.save(funcao);
 		}
@@ -162,9 +162,9 @@ public class BanheirolimpoApplication {
 		funcionario.setMatricula("VLL001");
 		funcionario.setTelegramChatId(462491517L);
 		funcionario.setSituacao(Situacao.ATIVO);
-		funcionario.setFuncao(funcaoRepository.findOne(1L));
-		funcionario.setEscalaTrabalho(escalaTrabalhoRepository.findOne(1L));
-		funcionario.setCliente(clienteRepository.findOne(1L));
+		funcionario.setFuncao(funcaoRepository.findByDescricaoIgnoreCase("ENCARREGADO"));
+		funcionario.setEscalaTrabalho(escalaTrabalhoRepository.findAll().get(0));
+		funcionario.setCliente(clienteRepository.findAll().get(0));
 
 		Funcionario find = funcionarioRepository.findOne(1L);
 		if (find == null) {
