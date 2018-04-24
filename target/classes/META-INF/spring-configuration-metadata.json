@@ -1,0 +1,31 @@
+{
+  "hints": [],
+  "groups": [],
+  "properties": [
+    {
+      "name": "bot.token",
+      "description": "A description for 'bot.token'",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "bot.uri",
+      "description": "A description for 'bot.uri'",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "bot.username",
+      "description": "A description for 'bot.username'",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jwt.expiration",
+      "description": "A description for 'jwt.expiration'",
+      "type": "java.lang.String"
+    },
+    {
+      "name": "jwt.secret",
+      "description": "A description for 'jwt.secret'",
+      "type": "java.lang.String"
+    }
+  ]
+}

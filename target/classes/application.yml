@@ -1,0 +1,48 @@
+endpoints:
+  beans:
+    enabled: true
+  env:
+    enabled: true
+
+spring:
+  application:
+    name: banheirolimpo-service
+  profiles:
+    active: dev
+  main:
+    banner-mode: 'off'
+     
+jwt:
+  secret: banheirolimpo
+  expiration: 604800
+  
+bot:
+  uri: https://api.telegram.org/
+  token: 488451384:AAFWSI6-SyR02hZ-hpXQRYtlE0bsQP4CbPU
+  username: BanheiroLimpoBot
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    platform: mysql
+    url: jdbc:mysql://localhost/banheiro_limpo?verifyServerCertificate=false&useSSL=false&requireSSL=false
+    username: root
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+---
+  
+spring:
+  profiles: prod
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
