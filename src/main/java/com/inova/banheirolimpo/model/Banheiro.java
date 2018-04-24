@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
@@ -44,11 +45,11 @@ public class Banheiro implements Serializable {
 	@Column(nullable = false, length = 70)
 	private String localizacao;
 	
-	@NotBlank(message = "O campo quantodade de boxes é de preenchimento obrigatório.")
+	@NotNull(message = "O campo quantodade de boxes é de preenchimento obrigatório.")
 	@Column(name = "quantidade_boxes", nullable = false)
 	private Integer quantidadeBoxes;
 	
-	@NotBlank(message = "O campo limitador de limpeza é de preenchimento obrigatório.")
+	@NotNull(message = "O campo limitador de limpeza é de preenchimento obrigatório.")
 	@Column(name = "limitador_limpeza", nullable = false)
 	private Integer limitadorLimpeza;
 	
