@@ -36,7 +36,7 @@ public class Banheiro implements Serializable {
 	private Long id;
 	
 	@NotBlank(message = "O campo nome é de preenchimento obrigatório.")
-	@Length(min = 10, max = 100, message = "O nome deve ter entre 10 e 100 caracteres.")
+	@Length(min = 4, max = 100, message = "O nome deve ter entre 4 e 100 caracteres.")
 	@Column(nullable = false, length = 100)
 	private String nome;
 	
