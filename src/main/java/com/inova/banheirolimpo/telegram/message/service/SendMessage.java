@@ -49,7 +49,7 @@ public class SendMessage {
 	private String uri;
 	
 	
-	public void enviarMensagem(String codigoSensor) {
+	public Message enviarMensagem(String codigoSensor) {
 		
 		String datetime = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).toString();
 		String hora = datetime.substring(11, 16);
@@ -66,8 +66,9 @@ public class SendMessage {
 				message = restTemplate.postForObject(endpoint, null, Message.class);
 			}
 		}
-		
 		log.info(message.toString());
+		
+		return message;
 	}
 
 }
