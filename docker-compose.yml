@@ -7,7 +7,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=banheiro_limpo
       - MYSQL_PASSWORD=root
-  spring-boot-jpa-docker-webapp:
+  docker-banheirolimpo-service:
     image: docker-banheirolimpo-service
     depends_on:
       - docker-mysql
