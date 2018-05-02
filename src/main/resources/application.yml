@@ -1,9 +1,3 @@
-endpoints:
-  beans:
-    enabled: true
-  env:
-    enabled: true
-
 spring:
   application:
     name: banheirolimpo-service
